@@ -1,6 +1,6 @@
 # Data-Structures-Implementation
 This repository collects implementations of common data structures.<br>
 <br>
-[Linked List]()<br>
-[Binary Search Tree]()
+[Linked List](https://github.com/Jsonghh/Data-Structures-Implementation/tree/master/Linked_List)<br>
+[Binary Search Tree](https://github.com/Jsonghh/Data-Structures-Implementation/tree/master/BST)<br>
 
