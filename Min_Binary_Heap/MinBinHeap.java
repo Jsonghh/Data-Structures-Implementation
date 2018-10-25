@@ -69,8 +69,33 @@ public int size() {
 
 @Override
 public void build(EntryPair[] entries) {
-	for (int i = 0; i < entries.length; i++) {
-		this.insert(entries[i]);
+	if (entries == null || entries.length == 0) {
+		return;
+	}
+	if (entries.length == 1) {
+		size = entries.length;
+		return;
+	}
+	size = entries.length;
+	int i = 0;
+	for (EntryPair entry : entries) {
+		array[++i] = entry;
+	}
+	int m = size / 2;
+	while (m >= 1) { // outer loop: iterate from last leaf to root
+		int index = m;
+		while (index * 2 < size) { //inner loop: iterate from current parent to leaf
+			int k = 2 * index;
+			if (array[k].getPriority() > array[k + 1].getPriority()) {
+				k++;
+			}
+			if (array[index].getPriority() < array[k].getPriority()) {
+				break;
+			}
+			swap(array, index, k);
+			index = k;
+		}
+		m--;
 	}
 }
 }
